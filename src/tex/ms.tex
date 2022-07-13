@@ -27,12 +27,12 @@
     deformation is drawn independently from a Gaussian with unknown mean and
     variance for each observation.  Both these models can recover the true data
     generating process at specific parameter values, but also admit parameter
-    values that do not match the true data generating process.  As expected in
-    the limit of a large number of independent observations, these models have
-    reduced Bayesian evidence relative to the true model for the data generating
-    process.  But we find that the log evidence for these models is reduced by a
-    term that grows only \emph{logarithmically} in the number of observations
-    relative to the true model; the model with a constant deformation parameter
+    values that do not match the true data generating process.  In the limit of
+    a large number of independent observations, these models have reduced
+    Bayesian evidence relative to the true model for the data generating
+    process.  But we find that the log evidence for these models relative to the
+    true model is reduced by a term that grows only \emph{logarithmically} in
+    the number of observations; the model with a constant deformation parameter
     for each observation suffers half the (logarithmic) reduction relative to
     the model where the deformation parameter is normally distributed across
     observations.  But both models suffer much less reduction in log evidence
@@ -56,16 +56,16 @@ while for $x \neq 0$ the theory is modified in some way.  Imagine that we make
 and we wish to use these observations to determine if $x\equiv 0$ is consistent
 with our observations or not.  This is (approximately) the setup in many tests of GR using gravitational waves.  
 
-Suppose further that our observations of $x$ are such that (a) the observations
-are independent and (b) in each observation the likelihood for the observed
-value of $x$, $x_o$ is normal about the latent value of $x$ at the time of the
-observation with known uncertainty, $\sigma_o$:
+Suppose further that our observations of $x$ are such that (a) the noise is
+independent in each observation and (b) in each observation the likelihood for
+the observed value of $x$, $x_o$, is normal about the latent value of $x$ at the
+time of the observation with known uncertainty, $\sigma_o$:
 \begin{equation}
     x_o \sim N\left(x, \sigma_o \right).
 \end{equation}
 
 We can build several different models for combining multiple observations to
-better constrain our theory.  If we are willing to make the restrictive
+better constrain the value of $x$.  If we are willing to make the restrictive
 assumption that there is one, single, true value of $x$ across all our
 observations (perhaps our extension to the base theory has a single, common
 parameter that controls the deviation in all circumstances), then after $i = 1,
@@ -106,7 +106,7 @@ observations, denoted $x_t$.  In the limit of a large number of observations,
 the likelihoods in Eqs.\ \eqref{eq:fixed-x-likelihood} and
 \eqref{eq:gaussian-x-likelihood} will asymptote to the exponential of $N$ times
 the mean log-likelihood, with additional terms at $o(N)$.  Thus, to explore the
-asymptotic behavior of the two models we need to calculate the mean log
+asymptotic behavior of the two models it is sufficient to calculate the mean log
 likelihood.  When there is a single, true value of $x \equiv x_t$, and the
 assumed Gaussian likelihood is the correct description of the data generating
 process, the distribution of $x_{o}$ in each observation is 
@@ -163,7 +163,7 @@ For the model with Gaussian distributed values of $x_i$ in each observation, we
 have\footnote{Once again, we are treating $\sigma^2$ as the parameter of
 interest not $\sigma$.}
 \begin{multline}
-    p\left( \left\{ x_{o,i} \mid i = 1, \ldots, N \right\} \mid \mathrm{Gaussian} \right) \\ \simeq p_\mathrm{Gaussian}\left( x_t, \frac{\sigma_o^2}{N-1} \right) \\ \times \int \mathrm{d} \mu \, \mathrm{d} \sigma^2 \, \left( 2 \pi \left( \sigma^2 + \sigma_o^2 \right)\right)^{-N/2} \exp\left[ - N \frac{\left( \mu - x_t \right)^2 + \sigma_o^2}{2 \left( \sigma^2 + \sigma_o^2 \right)} \right] \\ = \frac{1}{2 \pi N} \frac{1}{\left( \pi N \sigma_o^2 \right)^{(N-3)/2}} \left( \Gamma\left(\frac{N-3}{2} \right) - \Gamma\left( \frac{N-3}{2} , \frac{N}{2} \right) \right),
+    p\left( \left\{ x_{o,i} \mid i = 1, \ldots, N \right\} \mid \mathrm{Gaussian} \right) \\ \simeq p_\mathrm{Gaussian}\left( x_t, \frac{\sigma_o^2}{N-1} \right) \\ \times \int \mathrm{d} \mu \, \mathrm{d} \sigma^2 \, \left( 2 \pi \left( \sigma^2 + \sigma_o^2 \right)\right)^{-N/2} \exp\left[ - N \frac{\left( \mu - x_t \right)^2 + \sigma_o^2}{2 \left( \sigma^2 + \sigma_o^2 \right)} \right] \\ = \frac{1}{2 \pi N} \frac{p_\mathrm{Gaussian}\left( x_t, \frac{\sigma_o^2}{N-1} \right)}{\left( \pi N \sigma_o^2 \right)^{(N-3)/2}} \left( \Gamma\left(\frac{N-3}{2} \right) - \Gamma\left( \frac{N-3}{2} , \frac{N}{2} \right) \right),
 \end{multline}
 where $p_\mathrm{Gaussian}\left( \mu, \sigma^2 \right)$ is the prior we impose
 on $\mu$ and $\sigma^2$, $\Gamma\left( \cdot \right)$ is the Gamma function, and
